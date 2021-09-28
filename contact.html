@@ -1,90 +1,273 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-if(!$_POST) exit;
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">   
+   
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+     <!-- Site Metas -->
+    <title>FCC | CONTACT US</title>  
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-// Email address verification, do not edit.
-function isEmail($email) {
-	return(preg_match("/^[-_.[:alnum:]]+@((([[:alnum:]]|[[:alnum:]][[:alnum:]-]*[[:alnum:]])\.)+(ad|ae|aero|af|ag|ai|al|am|an|ao|aq|ar|arpa|as|at|au|aw|az|ba|bb|bd|be|bf|bg|bh|bi|biz|bj|bm|bn|bo|br|bs|bt|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|com|coop|cr|cs|cu|cv|cx|cy|cz|de|dj|dk|dm|do|dz|ec|edu|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|ga|gb|gd|ge|gf|gh|gi|gl|gm|gn|gov|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|id|ie|il|in|info|int|io|iq|ir|is|it|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|md|me|mg|mh|mil|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|museum|mv|mw|mx|my|mz|na|name|nc|ne|net|nf|ng|ni|nl|no|np|nr|nt|nu|nz|om|org|pa|pe|pf|pg|ph|pk|pl|pm|pn|pr|pro|ps|pt|pw|py|qa|re|ro|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|st|su|sv|sy|sz|tc|td|tf|tg|th|tj|tk|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|ws|ye|yt|yu|za|zm|zw)$|(([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5])\.){3}([0-9][0-9]?|[0-1][0-9][0-9]|[2][0-4][0-9]|[2][5][0-5]))$/i",$email));
-}
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"> 
 
-if (!defined("PHP_EOL")) define("PHP_EOL", "\r\n");
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ALL VERSION CSS -->
+    <link rel="stylesheet" href="css/versions.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
 
-$first_name     = $_POST['first_name'];
-$last_name     = $_POST['last_name'];
-$email    = $_POST['email'];
-$phone   = $_POST['phone'];
-$select_price   = $_POST['select_price'];
-$select_service   = $_POST['select_service'];
-$subject  = $_POST['subject'];
-$comments = $_POST['comments'];
-$verify   = $_POST['verify'];
+    <!-- Modernizer for Portfolio -->
+    <script src="js/modernizer.js"></script>
 
-if(trim($first_name) == '') {
-	echo '<div class="error_message">Attention! You must enter your name.</div>';
-	exit();
-}  else if(trim($email) == '') {
-	echo '<div class="error_message">Attention! Please enter a valid email address.</div>';
-	exit();
-} else if(!isEmail($email)) {
-	echo '<div class="error_message">Attention! You have enter an invalid e-mail address, try again.</div>';
-	exit();
-}
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-if(trim($comments) == '') {
-	echo '<div class="error_message">Attention! Please enter your message.</div>';
-	exit();
-}
+</head>
+<body class="host_version"> 
 
-if(get_magic_quotes_gpc()) {
-	$comments = stripslashes($comments);
-}
+	<!-- Modal -->
+	<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header tit-up">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title">Customer Login</h4>
+			</div>
+			<div class="modal-body customer-box">
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li><a class="active" href="#Login" data-toggle="tab">Login</a></li>
+					<li><a href="#Registration" data-toggle="tab">Registration</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane active" id="Login">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email1" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="exampleInputPassword1" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-10">
+									<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+										Submit
+									</button>
+									<a class="for-pwd" href="javascript:;">Forgot your password?</a>
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="tab-pane" id="Registration">
+						<form role="form" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" placeholder="Name" type="text">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="email" placeholder="Email" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="mobile" placeholder="Mobile" type="email">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-12">
+									<input class="form-control" id="password" placeholder="Password" type="password">
+								</div>
+							</div>
+							<div class="row">							
+								<div class="col-sm-10">
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Save &amp; Continue
+									</button>
+									<button type="button" class="btn btn-light btn-radius btn-brd grd1">
+										Cancel</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
 
+	<!-- LOADER -->
+	<div id="preloader">
+		<div class="loader-container">
+			<div class="progress-br float shadow">
+				<div class="progress__item"></div>
+			</div>
+		</div>
+	</div>
+	<!-- END LOADER -->	
 
-// Configuration option.
-// Enter the email address that you want to emails to be sent to.
-// Example $address = "joe.doe@yourdomain.com";
+    <!-- Start header -->
+	<header class="top-navbar">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.html" style="color:white;font-size:normal;">
+					WELCOME TO THE FOUNDATION CHEMISTRY CLASS. 
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-host" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbars-host">
+					<ul class="navbar-nav ml-auto">
+							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Study Materials </a>
+							    <div class="dropdown-menu" aria-labelledby="dropdown-a">
+								<a class="dropdown-item" href="smclass-9.html">Class 9 </a>
+								<a class="dropdown-item" href="smclass-10.html">Class 10 </a>
+								<a class="dropdown-item" href="smclass-11.html">Class 11</a>
+								<a class="dropdown-item" href="smclass-12.html">Class 12</a>
+								<a class="dropdown-item" href="smclass-NEET-JEE.html">NEET/JEE</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown">
+							
+						
+						
+						<li class="nav-item active" ><a class="nav-link" href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- End header -->
+	
+	
+	
+    <div id="contact" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3 style="color:green;" align="left">Contact Us</h3>
+                <p style="text-align:left;color:black;" >
+				FOUNDATION CHEMISTRY CLASS.
+				<br>
+				SHASTRI NAGAR. <br>BHAWANIPUR ZIRAT.<br> MOTOHARI.
+				<br>
+				EAST CHAMPARAN, BIHAR -845401.<br>
+				CONTACT NO:-9304431672.<br>
+				EMAIL : ghalib88735@gmail.com
+				
+				</p>
+            </div><!-- end title -->
 
-//$address = "example@themeforest.net";
-$address = "example@yourdomain.com";
+            
+        </div><!-- end container -->
+    </div><!-- end section -->
+	
+	
 
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>About US</h3>
+                        </div>
+                        <p> Foundation chemistry class is best institute of chemistry in Motihari Bihar.In this institute basically intermediate students of all boards  are teached.Here students prepare for medical and engineering entrance exams.  </p>
+                       <!-- <div class="footer-right">
+							<ul class="footer-links-soi">
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-github"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+							</ul>
+							-->
+							
+							<!-- end links  -->
+						</div
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
 
-// Configuration option.
-// i.e. The standard subject will appear as, "You've been contacted by John Doe."
+				<div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Information Link</h3>
+                        </div>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            
+							<li><a href="about.html">About</a></li>
+							<li><a href="contact.html">Contact</a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+				
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Contact Details</h3>
+                        </div>
 
-// Example, $e_subject = '$name . ' has contacted you via Your Website.';
+                        <ul class="footer-links">
+                            <li><a href="mailto:#">ghalib88735@gmail.com</a></li>
+                            <li><a href="#">www.fccbygalibsir.com</a></li>
+                            <li>Shastri Nagar bhawanipur zirat </li>
+							
+                            <li>Motiahri, Bihar-845401</li>
+							 <li>Contact no :9304431672  </li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+				
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
 
-$e_subject = 'You\'ve been contacted by ' . $first_name . '.';
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-center">                   
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021.  Design & Developed By : ER.MD SADIQUE IQUBAL</p>
+                </div>
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
 
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
 
-// Configuration option.
-// You can change this if you feel that you need to.
-// Developers, you may wish to add more fields to the form, in which case you must be sure to add them here.
+    <!-- ALL JS FILES -->
+    <script src="js/all.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCKjLTXdq6Db3Xit_pW_GK4EXuPRtnod4o"></script>
+	<!-- Mapsed JavaScript -->
+	<script src="js/mapsed.js"></script>
+	<script src="js/01-custom-places-example.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/custom.js"></script>
 
-$e_body = "You have been contacted by $first_name. $first_name selected service of $select_service, their additional message is as follows. Customer max budge is $select_price, for this project." . PHP_EOL . PHP_EOL;
-$e_content = "\"$comments\"" . PHP_EOL . PHP_EOL;
-$e_reply = "You can contact $first_name via email, $email or via phone $phone";
-
-$msg = wordwrap( $e_body . $e_content . $e_reply, 70 );
-
-$headers = "From: $email" . PHP_EOL;
-$headers .= "Reply-To: $email" . PHP_EOL;
-$headers .= "MIME-Version: 1.0" . PHP_EOL;
-$headers .= "Content-type: text/plain; charset=utf-8" . PHP_EOL;
-$headers .= "Content-Transfer-Encoding: quoted-printable" . PHP_EOL;
-
-if(mail($address, $e_subject, $msg, $headers)) {
-
-	// Email has sent successfully, echo a success page.
-
-	echo "<fieldset>";
-	echo "<div id='success_page'>";
-	echo "<h1>Email Sent Successfully.</h1>";
-	echo "<p>Thank you <strong>$first_name</strong>, your message has been submitted to us.</p>";
-	echo "</div>";
-	echo "</fieldset>";
-
-} else {
-
-	echo 'ERROR!';
-
-}
+</body>
+</html>
